@@ -17,6 +17,12 @@ gem 'puma', '~> 3.7'
 gem 'devise'
 gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
 
+# Paperclip for attachment handling
+gem "paperclip", "~> 5.0.0"
+
+# Use dropzone for drag and drop files
+gem 'dropzonejs-rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

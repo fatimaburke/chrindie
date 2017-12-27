@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171227015212) do
+ActiveRecord::Schema.define(version: 20171227130906) do
 
   create_table "albums", force: :cascade do |t|
     t.string "title"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20171227015212) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "artist_id"
+    t.string "art_file_name"
+    t.string "art_content_type"
+    t.integer "art_file_size"
+    t.datetime "art_updated_at"
+    t.string "track_file_name"
+    t.string "track_content_type"
+    t.integer "track_file_size"
+    t.datetime "track_updated_at"
   end
 
   create_table "artists", force: :cascade do |t|
@@ -35,6 +43,15 @@ ActiveRecord::Schema.define(version: 20171227015212) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string "name"
+    t.string "location"
+    t.text "bio"
+    t.string "website"
+    t.string "username"
     t.index ["email"], name: "index_artists_on_email", unique: true
     t.index ["reset_password_token"], name: "index_artists_on_reset_password_token", unique: true
   end
@@ -69,6 +86,15 @@ ActiveRecord::Schema.define(version: 20171227015212) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string "username"
+    t.string "name"
+    t.string "location"
+    t.text "bio"
+    t.string "website"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
