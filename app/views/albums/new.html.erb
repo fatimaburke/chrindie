@@ -1,0 +1,37 @@
+<h1>New Album</h1>
+<%= form_with model: @album,
+              # model: [ @artist, @artist.albums.build ],
+              local: true,
+              html: { multipart: true } do |f| %>
+
+  <% if @album.errors.any? %>
+    <div class="error_explanation">
+      <%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:
+      <br>
+      <ul>
+        <% @album.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.file_field :art %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Release Year" %>
+    <%= f.select :year, (2000..Time.now.year).to_a, :include_blank => {:year => "Select year"} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :genre %>
+    <%= f.text_field :genre %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Create Album" %>
+  </div>
+<% end %>
