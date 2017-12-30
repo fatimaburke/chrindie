@@ -13,6 +13,8 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 
+gem 'pry'
+gem 'pry-rails'
 # User Devise for secure user auth
 gem 'devise'
 gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
