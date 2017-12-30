@@ -3,6 +3,7 @@ before_action :authenticate_artist!, :except => [:show, :index, :results]
 
   def index
     @albums = Album.all
+    @tracks = Track.all
   end
 
   def results
@@ -26,7 +27,6 @@ before_action :authenticate_artist!, :except => [:show, :index, :results]
 
     if @album.save
       flash[:success] = 'Album Added'
-      # redirect_to album_tracks_path
       redirect_to @album
     else
       render 'new'
@@ -54,6 +54,7 @@ before_action :authenticate_artist!, :except => [:show, :index, :results]
   private
 
   def albums_params
-    params.require(:album).permit(:title, :year, :genre, :artist, :artist_id, :art, :track)
+    params.require(:album).params.permit(:title, :year, :genre, :artist, :artist_id, :art, :track)
+    # params.permit(:album,:title, :year, :genre, :artist, :artist_id, :art, :track)
   end
 end
