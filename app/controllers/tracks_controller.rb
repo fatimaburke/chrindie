@@ -43,6 +43,6 @@ class TracksController < ApplicationController
   private
 
   def tracks_params
-    params.require(:track).permit(:buy_link, :artist_id, :album_id, :title)
+    params.require(:track).permit(:buy_link, :artist_id, :album_id, :title, :track)
   end
 end
