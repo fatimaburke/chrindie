@@ -1,5 +1,5 @@
 class Track < ApplicationRecord
-  belongs_to :album
+  belongs_to :album, optional: true
   # necessary? vvv
   # belongs_to :artist
 
