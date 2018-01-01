@@ -1,9 +1,5 @@
 class Track < ApplicationRecord
-  belongs_to :album
-  # necessary? vvv
-  # belongs_to :artist
-
-  # validates :artist_id, :title, presence:true
+  belongs_to :album, optional: true
 
   has_attached_file :track, :restricted_characters => /[&$+,\/:;=?@<>\[\]\{\}\|\\\^~%#]/, dependent: :destroy
   validates_attachment_presence :track
