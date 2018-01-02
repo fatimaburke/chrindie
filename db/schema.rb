@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171229133925) do
+ActiveRecord::Schema.define(version: 20180102004328) do
 
   create_table "albums", force: :cascade do |t|
     t.string "title"
@@ -63,14 +63,14 @@ ActiveRecord::Schema.define(version: 20171229133925) do
   create_table "tracks", force: :cascade do |t|
     t.string "title"
     t.string "buy_link"
-    t.string "track_file_name"
-    t.string "track_content_type"
-    t.integer "track_file_size"
-    t.datetime "track_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "artist_id"
     t.integer "album_id"
+    t.string "song_file_name"
+    t.string "song_content_type"
+    t.integer "song_file_size"
+    t.datetime "song_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
