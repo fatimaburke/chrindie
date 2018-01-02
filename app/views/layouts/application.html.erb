@@ -9,6 +9,34 @@
   </head>
 
   <body>
+    <nav>
+      <a href="#" class="logo"><img src="" /></a>
+      <%= link_to "Home", "/" %>
+      <%= link_to "Albums", albums_path %>
+
+      <% if signed_in? %>
+
+          <%#= link_to "Artist Profile", artist_path(current_artist) %>
+          <%= link_to "Log Out", destroy_artist_session_path, method: :delete, data: {confirm: "Are you Sure you want to log out?"} %>
+
+      <% else %>
+
+          <%= form_for(:artist, :url => session_path(:artist), html: { class: "navbar-form navbar-right form-inline" }) do |f| %>
+            <div class="form-group">
+              <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
+            </div>
+            <div class="checkbox">
+              <%= f.check_box :remember_me %><%= f.label :remember_me %>
+            </div>
+            <%= f.submit 'Login', class: "btn btn-default" %>
+          <% end %>
+
+          <%= link_to "Sign Up", new_user_registration_path %>
+    <% end %>
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

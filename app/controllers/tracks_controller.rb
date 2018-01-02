@@ -10,10 +10,7 @@ class TracksController < ApplicationController
 
   def create
     @album = Album.find(params[:album_id])
-    @track = current_artist.tracks.create(tracks_params) || current_user.tracks.create(tracks_params)
-
-    # @track = @album.tracks.new(tracks_params) #kind of working
-    # @track = @album.tracks.build(title: title, artist_id: artist_id) #working
+    @track = @album.tracks.new(tracks_params) #working
 
     if @track.save!
       render json: { message: "success", fileID: @track.id }, :status => 200
@@ -43,6 +40,6 @@ class TracksController < ApplicationController
   private
 
   def tracks_params
-    params.require(:track).permit(:buy_link, :artist_id, :album_id, :title, :track)
+    params.require(:track).permit(:buy_link, :album_id, :title, :song)
   end
 end
