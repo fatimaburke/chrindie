@@ -15,6 +15,13 @@ gem 'puma', '~> 3.7'
 
 gem 'pry'
 gem 'pry-rails'
+
+#jQuery
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+
+#jPlayer
+gem 'jplayer-rails'
+
 # User Devise for secure user auth
 gem 'devise'
 gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
