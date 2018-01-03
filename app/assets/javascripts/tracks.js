@@ -1,6 +1,8 @@
+// disable auto discover
+Dropzone.autoDiscover = false;
+
 $(document).ready(function(){
-  // disable auto discover
-  Dropzone.autoDiscover = false;
+
 
   var dropzone = new Dropzone (".dropzone", {
     maxFilesize: 256, // set the maximum file size to 256 MB

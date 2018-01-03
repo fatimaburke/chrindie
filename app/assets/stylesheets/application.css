@@ -12,5 +12,6 @@
  *
  *= require_tree .
  *= require dropzone/dropzone
+ *= require jplayer.blue.monday
  *= require_self
  */

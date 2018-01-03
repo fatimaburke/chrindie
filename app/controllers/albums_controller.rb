@@ -54,7 +54,7 @@ before_action :authenticate_artist!, :except => [:show, :index, :results]
   private
 
   def albums_params
-    params.require(:album).permit(:title, :year, :genre, :artist, :artist_id, :art, :track)
+    params.require(:album).permit(:title, :year, :genre, :artist_id, :art, :track)
     # params.permit(:album,:title, :year, :genre, :artist, :artist_id, :art, :track)
   end
 end

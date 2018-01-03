@@ -1,0 +1,35 @@
+<% if current_artist.id == @album.artist.id %>
+  <%= form_with model: [@album, @album.tracks.create], html: { multipart: true }, local: true do |f| %>
+
+  <% if @album.errors.any? %>
+    <div class="error_explanation">
+      <%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:
+      <br>
+      <ul>
+        <% @album.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-group">
+    <%= f.label :buy_link %>
+    <%= f.text_field :buy_link %>
+  </div>
+  <div class="form-group dropzone">
+    <%= f.label :song %>
+    <%= f.file_field :song %>
+  </div>
+  <div class="form-group">
+    <%= f.submit %>
+  </div>
+  <% end %>
+
+<% else %>
+nuffin muffin
+<% end %>
