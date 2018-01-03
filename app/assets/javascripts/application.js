@@ -14,6 +14,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require popper
+//= require bootstrap-sprockets
 //= require jquery.jplayer.min
 //= require jplayer.playlist.min
 //= require dropzone

@@ -19,6 +19,9 @@ gem 'pry-rails'
 #jQuery
 gem 'jquery-rails'
 
+#bootstrap
+gem 'bootstrap', '~> 4.0.0.beta3'
+
 #jPlayer
 gem 'jplayer-rails'
 
