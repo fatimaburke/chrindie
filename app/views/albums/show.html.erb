@@ -4,85 +4,27 @@
 
 <%= image_tag @album.art.url %>
 
-<% if current_artist.id == @album.artist.id %>
-  <%= form_with model: [@album, @album.tracks.create], html: { multipart: true }, local: true do |f| %>
-
-  <% if @album.errors.any? %>
-    <div class="error_explanation">
-      <%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:
-      <br>
-      <ul>
-        <% @album.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="form-group">
-    <%= f.label :buy_link %>
-    <%= f.text_field :buy_link %>
-  </div>
-  <div class="form-group dropzone">
-    <%= f.label :song %>
-    <%= f.file_field :song %>
-  </div>
-  <div class="form-group">
-    <%= f.submit %>
-  </div>
-  <% end %>
-
-<% else %>
-nuffin muffin
-<% end %>
-
 <div class="ptest">
   <% @album.tracks.each do |trk| %>
-    <p><%= trk.song.url %></p>
+  <%= raw trk.to_json(
+    only:[:title], methods:[:mp3],
+  ) %> <%= "," %>
   <% end %>
 </div>
 
-<!--container for everything-->
-<div id="jp_container_1" class="jp-video jp-video-360p">
 
-    <!--container in which our video will be played-->
-    <div id="jquery_jplayer_1" class="jp-jplayer"></div>
 
-    <!--main containers for our controls-->
-    <div class="jp-gui">
-        <div class="jp-interface">
-            <div class="jp-controls-holder">
+<%= render 'jplayer' %>
 
-              <!--play and pause buttons-->
-              <a href="javascript:;" class="jp-play" tabindex="1">play</a>
-              <a href="javascript:;" class="jp-pause" tabindex="1">pause</a>
-              <span class="separator sep-1"></span>
+<%#= render 'trackform' %>
 
-            </div><!--end jp-controls-holder-->
-        </div><!--end jp-interface-->
-    </div><!--end jp-gui-->
 
-    <!--unsupported message-->
-    <div class="jp-no-solution">
-        <span>Update Required</span>
-        Here's a message which will appear if the video isn't supported. A Flash alternative can be used here if you fancy it.
-    </div>
 
-</div><!--end jp_container_1-->
-<script>
-  $(document).ready(function(){
-    $("#jquery_jplayer_1"),jPlayer({
-      ready: function () {
-        $(this).jPlayer("setMedia", {
-          mp3: "<%= @album.tracks.first.song.url %>",
-        });
-      },
-      swfPath: "/js",
-      supplied: "mp3"
-    });
-  });
-</script>
+<%= javascript_tag do %>
+  songList = <%= raw @album.tracks.to_json(
+    only:[:title], methods:[:mp3]
+    ) %>
+  newSongList = JSON.stringify(songList)
+  songInfo = JSON.parse(newSongList)
+  allTracks = Array.from(songInfo)
+<% end %>
