@@ -12,10 +12,12 @@ class TracksController < ApplicationController
     @album = Album.find(params[:album_id])
     @track = @album.tracks.build(tracks_params) #working
 
-    if @track.save!
-      render json: { message: "success", fileID: @track.id }, :status => 200
+    if @track.save
+      redirect_to @album
+      # render json: { message: "success", fileID: @track.id }, :status => 200
     else
       render json: { error: @track.errors.full_messages.join(',')}, :status => 400
+      # redirect_to @album
     end
   end
 
