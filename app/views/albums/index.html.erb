@@ -1,0 +1,8 @@
+<h1>All Albums</h1>
+
+<% @albums.each do |a| %>
+  <%= image_tag a.art.url %>
+  <%= a.title %> by
+  <%= a.artist.name %>
+  <%= link_to "Listen Now", album_path(@album.id) %>
+<% end %>

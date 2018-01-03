@@ -4,21 +4,9 @@
 
 <%= image_tag @album.art.url %>
 
-<div class="ptest">
-  <% @album.tracks.each do |trk| %>
-  <%= raw trk.to_json(
-    only:[:title], methods:[:mp3],
-  ) %> <%= "," %>
-  <% end %>
-</div>
-
-
+<%= render 'trackform' %>
 
 <%= render 'jplayer' %>
-
-<%#= render 'trackform' %>
-
-
 
 <%= javascript_tag do %>
   songList = <%= raw @album.tracks.to_json(

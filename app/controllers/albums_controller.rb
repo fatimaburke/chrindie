@@ -4,6 +4,7 @@ before_action :authenticate_artist!, :except => [:show, :index, :results]
   def index
     @albums = Album.all
     @tracks = Track.all
+    @album = Album.find_by(params[:id])
   end
 
   def results
