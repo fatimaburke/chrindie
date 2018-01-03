@@ -10,7 +10,7 @@ class TracksController < ApplicationController
 
   def create
     @album = Album.find(params[:album_id])
-    @track = @album.tracks.new(tracks_params) #working
+    @track = @album.tracks.build(tracks_params) #working
 
     if @track.save!
       render json: { message: "success", fileID: @track.id }, :status => 200
