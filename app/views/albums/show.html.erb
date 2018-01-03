@@ -4,10 +4,9 @@
 
 <%= image_tag @album.art.url %>
 
-<%= render 'jplayer' %>
-
-
 <%= render 'trackform' %>
+
+<%= render 'jplayer' %>
 
 <%= javascript_tag do %>
   songList = <%= raw @album.tracks.to_json(

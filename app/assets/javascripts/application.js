@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require popper
 //= require bootstrap-sprockets
+//= require bootstrap/modal
 //= require jquery.jplayer.min
 //= require jplayer.playlist.min
 //= require dropzone
