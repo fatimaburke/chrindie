@@ -17,7 +17,7 @@ gem 'pry'
 gem 'pry-rails'
 
 #jQuery
-gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'jquery-rails'
 
 #jPlayer
 gem 'jplayer-rails'
