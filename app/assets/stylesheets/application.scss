@@ -15,3 +15,15 @@
  *= require jplayer.blue.monday
  *= require_self
  */
+ @import "bootstrap";
+ // $darkGrey: #181818;
+
+ * {
+   box-sizing: border-box;
+   border: 1px dotted #ccc;
+ }
+
+ nav a, nav{
+   color:#fff;
+   background-color: #181818;
+ }
