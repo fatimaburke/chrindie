@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :artists
+  devise_for :artists,
+             :controllers => {
+                :registrations => 'registrations'
+              }
   devise_for :users
   get 'home/index'
 
