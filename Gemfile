@@ -31,7 +31,7 @@ gem 'devise'
 gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
 
 # Paperclip for attachment handling
-gem "paperclip", "~> 5.0.0"
+gem 'paperclip', '~> 5.2', '>= 5.2.1'
 
 #Seed Dump to create seeds from existing database data
 gem 'seed_dump'
