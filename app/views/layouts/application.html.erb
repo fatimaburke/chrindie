@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>Chrindie</title>
     <%= csrf_meta_tags %>
 
@@ -9,33 +12,33 @@
   </head>
 
   <body>
-    <nav class="navbar fixed-top navbar-light bg-faded">
-      <a href="#" class="navbar-brand logo"><img src="" /></a>
-      <%= link_to "Home", "/" %>
-      <%= link_to "Albums", albums_path %>
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-faded">
+      <%= link_to "#{image_tag("Logo.png")}".html_safe, root_path, class:"navbar-brand logo" %>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbarNavDropdown" class="collapse navbar-collapse">
+        <div class="navbar-nav ml-auto">
+        <%= link_to "Home", "/", class: "nav-item nav-link" %>
+        <%= link_to "Albums", albums_path, class: "nav-item nav-link" %>
 
-      <% if signed_in? %>
+        <% if artist_signed_in? %>
 
-          <%#= link_to "Artist Profile", artist_path(current_artist) %>
-          <%= link_to "Log Out", destroy_artist_session_path, method: :delete, data: {confirm: "Are you Sure you want to log out?"} %>
+            <%#= link_to "Artist Profile", artist_path(current_artist), class: "nav-item" %>
+            <%= link_to "Log Out", destroy_artist_session_path, method: :delete, data: {confirm: "Are you Sure you want to log out?"}, class: "nav-item nav-link" %>
 
-      <% else %>
+        <% else %>
 
-          <%= form_for(:artist, :url => session_path(:artist), html: { class: "navbar-form navbar-right form-inline" }) do |f| %>
-            <div class="form-group">
-              <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
-            </div>
-            <div class="form-group">
-              <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
-            </div>
-            <div class="checkbox">
-              <%= f.check_box :remember_me %><%= f.label :remember_me %>
-            </div>
-            <%= f.submit 'Login', class: "btn btn-default" %>
-          <% end %>
+            <%= form_for(:artist, :url => session_path(:artist), html: { class: "form-inline" }) do |f| %>
+                <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
+                <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
+              <%= f.submit 'Login', class: "btn btn-default" %>
+            <% end %>
 
-          <%= link_to "Sign Up", new_user_registration_path %>
-    <% end %>
+            <%= link_to "Sign Up", new_user_registration_path, class:"nav-link nav-item signupbtn" %>
+        <% end %>
+        </div>
+      </div>
     </nav>
     <!-- <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
