@@ -2,7 +2,7 @@ class Album < ApplicationRecord
   belongs_to :artist
   has_many :tracks, :dependent => :destroy
 
-  has_attached_file :art, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :art, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/assets/original/missing.png"
   validates_attachment_content_type :art, content_type: /\Aimage\/.*\z/
 
   # has_attached_file :track, :restricted_characters => /[&$+,\/:;=?@<>\[\]\{\}\|\\\^~%#]/, dependent: :destroy
