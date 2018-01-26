@@ -21,7 +21,7 @@ gem 'jquery-rails'
 
 #bootstrap
 gem 'bootstrap', '~> 4.0.0.beta3'
-gem 'bootstrap-sass'
+# gem 'bootstrap-sass'
 
 #jPlayer
 gem 'jplayer-rails'
@@ -32,6 +32,9 @@ gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'boots
 
 # Paperclip for attachment handling
 gem "paperclip", "~> 5.0.0"
+
+#Seed Dump to create seeds from existing database data
+gem 'seed_dump'
 
 # Use dropzone for drag and drop files
 gem 'dropzonejs-rails'
