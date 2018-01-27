@@ -1,41 +1,80 @@
-<div class="row main" style="min-height:680px;position:relative;background-color:#181818;">
-  <div class="player" style="position:absolute;bottom:0px;width:100%;height:60px;background-color:#000;opacity:0.58;">Player here</div>
+<div class="row banner aligner">
+  <div class="announce text-center aligner-item">
+    <span>Take this journey with us...</span>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Enter the road you'd like to explore" aria-describedby="basic-addon2">
+      <span class="input-group-addon" id="basic-addon2">Go!</span>
+    </div>
+  </div>
+  <div class="player">Player here</div>
 </div>
-<div class="row roads" style="min-height:265px">
-  <div class="col-md" style="">col 1</div>
-  <div class="col-md" style=""> col 2</div>
-  <div class="col-md" style="">col 3</div>
+
+<div class="row roads">
+  <div class="froad aligner col-md text-center"><span class="aligner-item">Faith Road</span></div>
+  <div class="wroad aligner col-md text-center"><span class="aligner-item">Worship Road</span></div>
+  <div class="groad aligner col-md text-center"><span class="aligner-item">Forgiveness Road</span></div>
 </div>
-<div class="row albums" style="background-color:#176195;min-height:440px;">
-  <h1 style="display:block;width:100%;">Top Albums</h1>
-  <div class="col-lg thumb"><img src="http://via.placeholder.com/210x210"/></div>
-  <div class="col-lg thumb"><img src="http://via.placeholder.com/210x210"/></div>
-  <div class="col-lg thumb"><img src="http://via.placeholder.com/210x210"/></div>
-  <div class="col-lg thumb"><img src="http://via.placeholder.com/210x210"/></div>
-  <div class="col-lg thumb"><img src="http://via.placeholder.com/210x210"/></div>
+<div class="row albums">
+    <h1 class="col-12">Top Albums</h1>
+  <% @albums.each do |a| %>
+  <div class="col-lg thumb text-center">
+    <%= image_tag a.art.url %>
+    <div>
+      <div><%= a.title %> by <%= a.artist.name %></div>
+      <%= link_to "Listen Now", album_path(a.id), class: "btn btn-primary" %>
+    </div>
+  </div>
+  <% end %>
 </div>
-<div class="row artists" style="min-height:415px;background-color:#2e2e2e;">
-  <div class="col-md-8">Col 1</div>
-  <div class="col-md-4 new_artists" style="display:grid; grid-template-rows: repeat(3, 80px);
-grid-template-columns: repeat(4, 1fr); grid-row-gap:20px;
-grid-column-gap: 20px;background-color:#0000003d;">
-    <div class=""><img src="http://via.placeholder.com/80x80"/></div>
-    <div class=""><img src="http://via.placeholder.com/80x80"/></div>
-    <div class=""><img src="http://via.placeholder.com/80x80"/></div>
-    <div class=""><img src="http://via.placeholder.com/80x80"/></div>
-    <div class=""><img src="http://via.placeholder.com/80x80"/></div>
-    <div class=""><img src="http://via.placeholder.com/80x80"/></div>
-    <div class=""><img src="http://via.placeholder.com/80x80"/></div>
-    <div class=""><img src="http://via.placeholder.com/80x80"/></div>
-    <div class=""><img src="http://via.placeholder.com/80x80"/></div>
-    <div class=""><img src="http://via.placeholder.com/80x80"/></div>
+<div class="row artists">
+  <div class="col-md-8 row">
+    <div class="col-md-6 text-center" style="position:relative;">
+      <img src="/assets/featpic.png" class="featimg"/>
+      <span class="featttl">
+        Featured Artist Name
+        <small>Artist Location</small>
+      </span>
+    </div>
+    <div class="feattxt col-md-6">
+      <h3>Get to Know the Artist that’s Rocking the Area</h3>
+<hr/>
+      <p>Illum qui dolorem eum fugiat quo voluptas nulla pariatur? Ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p>
+
+      <p>Ned quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+
+      <div>
+        <%= link_to "Listen", "#", class: "btn btn-primary float-right" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 new_artists">
+    <div class="row">
+      <h3 class="col-12">New Artists</h3>
+    </div>
+    <div class="new_artists_grd">
+      <div class=""><img src="http://via.placeholder.com/80x80"/></div>
+      <div class=""><img src="http://via.placeholder.com/80x80"/></div>
+      <div class=""><img src="http://via.placeholder.com/80x80"/></div>
+      <div class=""><img src="http://via.placeholder.com/80x80"/></div>
+      <div class=""><img src="http://via.placeholder.com/80x80"/></div>
+      <div class=""><img src="http://via.placeholder.com/80x80"/></div>
+      <div class=""><img src="http://via.placeholder.com/80x80"/></div>
+      <div class=""><img src="http://via.placeholder.com/80x80"/></div>
+      <div class=""><img src="http://via.placeholder.com/80x80"/></div>
+      <div class=""><img src="http://via.placeholder.com/80x80"/></div>
+    </div>
   </div>
 </div>
-<div class="row recent" style="min-height:415px;">
-  <div class="col-lg thumb"><img src="http://via.placeholder.com/210x210"/></div>
-  <div class="col-lg thumb"><img src="http://via.placeholder.com/210x210"/></div>
-  <div class="col-lg thumb"><img src="http://via.placeholder.com/210x210"/></div>
-  <div class="col-lg thumb"><img src="http://via.placeholder.com/210x210"/></div>
-  <div class="col-lg thumb"><img src="http://via.placeholder.com/210x210"/></div>
+<div class="row recent">
+  <h1 class="col-12">Recent Albums</h1>
+  <% @albums.each do |a| %>
+  <div class="col-lg thumb text-center">
+    <%= image_tag a.art.url %>
+    <div>
+      <div><%= a.title %> by <%= a.artist.name %></div>
+      <%= link_to "Listen Now", album_path(a.id), class: "btn btn-primary" %>
+    </div>
+  </div>
+  <% end %>
 </div>
-<div class="row footer" style="background-color:#000;color:#fff;height:45px;"><span class="text-center">Designed and developed by Fatima Burke</span></div>
+<div class="row footer"><span class="col-12 text-center">Designed and developed by Fatima Burke</span></div>

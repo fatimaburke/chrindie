@@ -16,21 +16,222 @@
  *= require_self
  */
  @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css?family=Roboto:300,400|Varela+Round');
  // $darkGrey: #181818;
+ // green: #80b71b;
 
  * {
    box-sizing: border-box;
    // border: 1px dotted #ccc;
+   font-family: 'Roboto', sans-serif;
+   font-weight: 300;
+ }
+
+ h1 {
+  font-family: 'Varela Round', sans-serif;
  }
 
  .main {
-  padding-top: 70px;
+  padding-top: 56px;
  }
+
+.btn {
+  font-size: .9rem;
+  line-height: 1;
+  border-radius: 0.6rem;
+}
+
+.btn-primary {
+  background-color: #80b71b;
+  border-color: #80b71b;
+}
 
  nav a, nav{
    color:#fff;
    background-color: #181818;
  }
+
+ nav input[type="text"], nav input[type="password"] {
+   height: 29px;
+    border-radius: 0;
+    border: none;
+    background-color: #5a5a5a;
+    color: #fff;
+    width: 147px;
+ }
+
+  nav input[type="text"] {
+    margin-right: 10px;
+  }
+
+ nav input[type="submit"] {
+   border-radius: 0px 0.3rem 0.3rem 0px;
+ }
+
+.signupbtn {
+    display: block;
+    background: #fff;
+    border-radius: 0.3rem;
+    padding: 3px 10px;
+    height: 30px;
+    margin: 5px 0px 0px 0px;
+    color: #fff;
+    background: #80b71b;
+    text-align: center;
+ }
+
+ // .navbar-toggler {
+ //   color: #fff;
+ //  background: #4d8311;
+ // }
+
+ /* Home Styles */
+.banner {
+  min-height: 700px;
+    position: relative;
+    background-color: #181818;
+    margin-top: -70px;
+    background: url(/assets/Main.png) center;
+    background-size: cover;
+}
+
+.player {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 60px;
+  background-color: #000;
+  opacity: 0.58;
+}
+
+.announce span:first-child {
+  font-family:'Varela Round', sans-serif;
+  font-size:48px;
+  color:#fff;
+}
+
+  /* full center text */
+  .aligner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .aligner-item {
+    max-width: 50%;
+  }
+
+  .roads {
+    min-height: 265px;
+  }
+
+  .froad {
+    background:url(/assets/froad.png) center no-repeat; background-size: cover;
+  }
+
+  .wroad {
+    background:url(/assets/wroad.png) center no-repeat; background-size: cover;
+  }
+
+  .groad {
+    background:url(/assets/groad.png) center no-repeat; background-size: cover;
+  }
+
+.thumb {
+  margin-bottom: 30px;
+}
+
+ .thumb img {
+   width: 210px;
+   height: 210px;
+ }
+
+.albums, .recent {
+   padding-bottom: 90px;
+   min-height: 415px;
+ }
+
+.albums h1, .recent h1 {
+  padding: 50px 18px;
+}
+
+ .albums {
+  background-color: #176195;
+  min-height: 440px;
+  background: url(/assets/top.png) no-repeat;
+  background-size: cover;
+ }
+
+ .artists {
+   min-height: 475px;
+    background-color: #2e2e2e;
+    background: url(/assets/artist.png) no-repeat;
+   background-size: cover;
+}
+
+.featttl {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  font-family:'Varela Round', sans-serif;
+  color:#fff;
+  font-size: 22px;
+}
+
+.featttl small {
+  font-size: 11px;
+  text-transform: uppercase;
+  display: block;
+  text-align: left;
+}
+
+.feattxt {
+  color: #fff;
+ padding: 50px 20px;
+}
+
+.featimg {
+  margin-top: -42px;
+}
+
+.new_artists_grd {
+  display: grid;
+  grid-template-rows: repeat(3, 80px);
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+}
+
+.new_artists {
+  background-color: #0000003d;
+  padding: 20px;
+  color: #fff;
+}
+
+.new_artists h3 {
+  padding: 30px 13px;
+}
+
+.footer {
+  background-color: #000;
+  color: #fff;
+  height: 45px;
+}
+
+ /* Single Album Show Page */
+ .art img {
+   height:210px;
+   width:210px;
+ }
+ .albums_pg {
+   height: 100vw;
+ }
+ .playlist {
+   background-color: #1f1f1f;
+   padding: 0px;
+ }
+
+
 
  /* jplayer styles */
  .jp-video-270p {
@@ -65,8 +266,14 @@
     width: 100%;
 }
 
+.jp-playlist ul {
+  padding: 0px;
+}
+
 div.jp-type-playlist div.jp-playlist li.jp-playlist-current {
     list-style-type: none;
+    background: #2b2b2b;
+    padding-left: 19px;
   }
 
 .jp-playlist li {

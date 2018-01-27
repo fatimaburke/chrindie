@@ -1,12 +1,14 @@
-<h1><%= @album.title %></h1>
-
-<p>by <%= @album.artist.name %></p>
-
-<%= image_tag @album.art.url %>
-
-<%= render 'trackform' %>
-
-<%= render 'jplayer' %>
+<div class="albums_pg row" style="">
+  <div class="col-md-4">
+    <h1><%= @album.title %></h1>
+    <div>by <%= @album.artist.name %></div>
+    <div class="art"><%= image_tag @album.art.url %></div>
+    <div><%= render 'trackform' %></div>
+  </div>
+  <div class="col-md-8 playlist">
+    <%= render 'jplayer' %>
+  </div>
+</div>
 
 <%= javascript_tag do %>
   songList = <%= raw @album.tracks.to_json(
