@@ -16,7 +16,10 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Let Paperclip know where to look for ImageMagick
-  Paperclip.options[:command_path] = "/usr/local/bin/"
+
+  # Paperclip config:
+  Paperclip.options[:image_magick_path] = "/opt/ImageMagick/bin"
+  Paperclip.options[:command_path] = "/opt/ImageMagick/bin"
 
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?

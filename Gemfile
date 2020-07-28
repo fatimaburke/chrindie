@@ -7,7 +7,9 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+# gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 6.0', '>= 6.0.3.2'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -27,11 +29,14 @@ gem 'bootstrap', '~> 4.0.0.beta3'
 gem 'jplayer-rails'
 
 # User Devise for secure user auth
-gem 'devise'
+gem 'devise', '~> 4.7', '>= 4.7.2'
 gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
 
+# A 2020 Update?
+gem 'railties', '~> 6.0', '>= 6.0.3.2'
+
 # Paperclip for attachment handling
-gem 'paperclip', '~> 5.2', '>= 5.2.1'
+gem 'paperclip', '~> 6.1'
 
 #Seed Dump to create seeds from existing database data
 gem 'seed_dump'
@@ -40,7 +45,9 @@ gem 'seed_dump'
 gem 'dropzonejs-rails'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
