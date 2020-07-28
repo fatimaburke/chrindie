@@ -22,7 +22,7 @@ gem 'pry-rails'
 gem 'jquery-rails'
 
 #bootstrap
-gem 'bootstrap', '~> 4.0.0.beta3'
+gem 'bootstrap', '~> 4.5'
 # gem 'bootstrap-sass'
 
 #jPlayer
